@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Form = ({ todoData, setTodoData }) => {
-    console.log("Form 랜더링")
+  console.log("Form 랜더링");
   // 새로운 할일 state 변수
   const [value, setValue] = useState("");
 
@@ -29,7 +29,11 @@ const Form = ({ todoData, setTodoData }) => {
   };
   return (
     <div>
-      <form style={{ display: "flex" }} onSubmit={handleSubmit}>
+      <form
+        className="flex pt-2"
+        style={{ display: "flex" }}
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           name="value"
@@ -37,8 +41,14 @@ const Form = ({ todoData, setTodoData }) => {
           placeholder="할일을 입력해 주세요"
           value={value}
           onChange={handleChange}
+          className="w-full px-3 py-2 mr-4 text-gray-500 border rounded shadow"
         />
-        <input type="submit" style={{ flex: "1" }} value="입력" />
+        <input
+          type="submit"
+          style={{ flex: "1" }}
+          value="입력"
+          className="p-2 text-blue-400 border-2 border-blue-400 rounded hover:text-white hover:bg-blue-400"
+        />
       </form>
     </div>
   );

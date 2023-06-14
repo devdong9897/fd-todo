@@ -16,11 +16,13 @@ function App() {
   // 이벤트 핸들러
 
   return (
-    <>
-      <div className="container">
-        <div className="todo-block">
-          <div className="title">
-            <h1>할일목록</h1>
+    <div className="flex items-center justify-center w-screen h-screen bg-blue-300">
+      <div className="w-4/5 p-6 bg-white rounded-[6px] shadow">
+        <div>
+          <div className="flex justify-between mb-3">
+            <h1 className="text-center w-3/4 text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-semibold">
+              Firebase Todo-list
+            </h1>
           </div>
           {/* 할일 목록 */}
           <List todoData={todoData} setTodoData={setTodoData} />
@@ -28,7 +30,7 @@ function App() {
           <Form todoData={todoData} setTodoData={setTodoData} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
