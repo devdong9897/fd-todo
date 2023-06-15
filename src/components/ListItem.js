@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ListItem = ({ item, todoData, setTodoData }) => {
   // console.log("ListItem 랜더링", item);
@@ -7,6 +7,10 @@ const ListItem = ({ item, todoData, setTodoData }) => {
   const [isEdit, setIsEdit] = useState(false);
   // 편집 상태 타이틀 설정 state
   const [editTitle, setEditTitle] = useState(item.title);
+
+  useEffect(() => {
+
+  })
 
   const getStyle = _completed => {
     return {
@@ -25,6 +29,7 @@ const ListItem = ({ item, todoData, setTodoData }) => {
     // 로컬스토리지 저장
     localStorage.setItem("fbTodoData", JSON.stringify(newTodoData));
   };
+  // axios delete 호출 fbtodolist 삭제하기
   const handleEditClick = () => {
     setIsEdit(true);
   };
@@ -63,6 +68,7 @@ const ListItem = ({ item, todoData, setTodoData }) => {
     setTodoData(newTodoData);
     // 로컬스토리지 저장
     localStorage.setItem("fbTodoData", JSON.stringify(newTodoData));
+    // axios patch/put 호출 fbtodolist 수정하기
   };
 
   if (isEdit) {
@@ -73,8 +79,8 @@ const ListItem = ({ item, todoData, setTodoData }) => {
           <input
             className="w-full px-3 py-2 mr-3 text-gray-500 rounded"
             type="text"
-            value={editTitle}
-            onChange={handleEditChange}
+            defaultValue={item.title}
+            onChange={e => handleEditChange(e)}
           />
         </div>
         <div className="items-center">
